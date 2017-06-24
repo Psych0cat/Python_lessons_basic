@@ -25,6 +25,29 @@ date = '01.22.1001'
 date = '1.12.1001'
 date = '-2.10.3001'
 
+def check_date(date):
+    if len(date) != 10:
+        print ("incorrect date format")
+        return
+    date = date.split('.')
+    if int(date[0]) <0 or int(date[1]) <0 or int(date[2]) <0:
+        print ("incorrect date format")
+        return
+    elif int(date[2]) not in range(1, 100000):
+        print ("incorrect date format")
+        return
+    elif int(date[1]) not in range(1, 13):
+        print ("incorrect date format")
+        return
+    elif int(date[1]) in [1, 3, 5, 7, 9, 11] and int(date[0]) not in range(1, 32):
+        print ("incorrect date format")
+        return
+    elif int(date[1]) in [2, 4, 6, 8, 10, 12] and int(date[0]) not in range(1, 31):
+        print ("incorrect date format")
+        return
+    else:
+        print ("Date is correct!")
+        return
 
 # Задание-3: "Перевернутая башня" (Задача олимпиадного уровня)
 #
