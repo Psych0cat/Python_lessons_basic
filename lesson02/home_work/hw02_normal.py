@@ -7,7 +7,7 @@
 import math
 nams = [2, -5, 8, 9, -25, 25, 4]
 #генерируем квадраты положительных чисел, int которых равен float
-print [int(math.sqrt(num))for num in nums if num > 0 and int(math.sqrt(num)) == float(math.sqrt(num))]
+print ([int(math.sqrt(num))for num in nums if num > 0 and int(math.sqrt(num)) == float(math.sqrt(num))])
 
 # Задача-2: Дана дата в формате dd.mm.yyyy, например: 02.11.2013.
 # Ваша задача вывести дату в текстовом виде, например: второе ноября 2013 года.
@@ -31,4 +31,4 @@ print ([random.randint(-100, 100) for num in range(n)])
 # Задача-4: Дан список заполненный произвольными целыми числами
 # Получите новый список, элементами которого будут только уникальные элементы исходного
 
-print [num for num in set(my_list)]
+print ([num for num in set(my_list)])
