@@ -11,15 +11,29 @@ def fibonacci(n, m):
 # Для сортировки используйте любой алгоритм (например пузырьковый).
 # Для решения данной задачи нельзя использовать встроенную фукцию и метод sort()
 
-
 def sort_to_max(origin_list):
-    pass
-
+    new_list = []
+    while origin_list:
+        minimum = origin_list[0]
+        for x in origin_list:
+            if x < minimum:
+                minimum = x
+        new_list.append(minimum)
+        origin_list.remove(minimum)
+    print (new_list)
+		        
 sort_to_max([2, 10, -12, 2.5, 20, -11, 4, 4, 0])
+
 
 # Задача-3:
 # Напишите собственную реализацию функции filter
 # Разумеется, внутри нельзя использовать саму функцию filter
+
+def filter_new(func, old_seq):
+    new_seq = []
+    for item in old_seq:
+        new_seq.append(func(item))
+    print (new_seq)
 
 
 # Задача-4:

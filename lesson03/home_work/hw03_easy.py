@@ -6,8 +6,8 @@
 
 
 def my_round(number, ndigits):
-    pass
 
+	    
 my_round(2.1234567, 5)
 
 # Задание-2:
@@ -18,5 +18,5 @@ my_round(2.1234567, 5)
 
 
 def lucky_ticket(ticket_number):
-    pass
-
+    t_list = [int(i) for i in str(ticket_number)]
+    return sum(t_list[:3]) == sum(t_list[3:])
