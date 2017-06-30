@@ -40,3 +40,10 @@ def filter_new(func, old_seq):
 # Даны четыре точки А1(х1, у1), А2(x2 ,у2), А3(x3 , у3), А4(х4, у4).
 # Определить, будут ли они вершинами параллелограмма
 
+def is_rect(coords):
+    """input: sequence of coordinates
+	   output: true/false"""
+    if len(coords) != 4:
+        return False
+    tA, tB, tC, tD = sorted(coords)
+    return tA[0] == tB[0] and tC[0] == tD[0] and tA[1] == tC[1] and tB[1] == tD[1]
