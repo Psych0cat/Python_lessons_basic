@@ -12,3 +12,100 @@
 # в которой был запущен скрипт.
 
 # P.S. По возможности, сделайте кросс-платформеную реализацию.
+
+import os
+import sys
+import shutil
+print('sys.argv = ', sys.argv)
+
+
+def print_help():
+    print("help - получение справки")
+    print("mkdir <dir_name> - создание директории")
+    print("ping - тестовый ключ")
+
+
+def make_dir():
+    if not dir_name:
+        print("Необходимо указать имя директории вторым параметром")
+        return
+    dir_path = os.path.join(os.getcwd(), dir_name)
+    try:
+        os.mkdir(dir_path)
+        print('директория {} создана'.format(dir_name))
+    except FileExistsError:
+        print('директория {} уже существует'.format(dir_name))
+
+
+def cp():
+    if not dir_name:
+        print("Необходимо указать имя директории вторым параметром")
+        return
+    dir_path = os.path.join(os.getcwd(), dir_name)
+    try:
+        shutil.copytree(dir_path, dst)
+        print('директория {} копирована в {}'.format(dir_name, dst))
+    except FileExistsError:
+        print('директория {} уже существует'.format(dir_name))
+
+def rm():
+    if not dir_name:
+        print("Необходимо указать имя директории вторым параметром")
+        return
+    dir_path = os.path.join(os.getcwd(), dir_name)
+    try:
+        shutil.rmtree(dir_path)
+        print('директория {} удалена'.format(dir_name))
+    except:
+        print("Ошибка при удалении")  
+
+def cd():
+    if not dir_name:
+        print("Необходимо указать имя директории вторым параметром")
+        return
+    dir_path = os.path.join(os.getcwd(), dir_name)
+    try:
+        os.chdir(dir_path)
+    except:
+        print("Ошибка при перемещении в {}".format(dir_path)    
+		
+		
+def ls():
+    print (os.path.dirname(os.path.abspath(__file__)))
+		
+		
+def ping():
+    print("pong")
+
+do = {
+    "help": print_help,
+    "mkdir": make_dir,
+    "ping": ping
+	"cp": cp
+	"rm": rm
+	"cd": cd
+	"ls": ls
+}
+
+try:
+    dst = sys.argv[3]
+except IndexError:
+    dst = None
+
+try:
+    dir_name = sys.argv[2]
+except IndexError:
+    dir_name = None
+
+try:
+    key = sys.argv[1]
+except IndexError:
+    key = None
+
+
+if key:
+    if do.get(key):
+        do[key]()
+    else:
+        print("Задан неверный ключ")
+        print("Укажите ключ help для получения справки")
